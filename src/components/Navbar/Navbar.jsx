@@ -1,8 +1,8 @@
-import "./navMenu.css";
+import "./navbar.css";
 
-const NavMenu = () => {
+const Navbar = () => {
   return (
-    <>
+    <nav className="transform-slide-right">
       <ul className="nav-lists">
         <li>
           <a href="#" className="nav-link">
@@ -30,8 +30,8 @@ const NavMenu = () => {
           </a>
         </li>
       </ul>
-    </>
+    </nav>
   );
 };
 
-export default NavMenu;
+export default Navbar;

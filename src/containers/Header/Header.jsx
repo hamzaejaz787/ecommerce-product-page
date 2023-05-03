@@ -1,29 +1,54 @@
+import { useState } from "react";
+import { RiMenuLine, RiCloseLine } from "react-icons/ri";
+
 import logo from "../../assets/logo.svg";
-import cart from "../../assets/icon-cart.svg";
-import user from "../../assets/image-avatar.png";
-import NavMenu from "../../components/NavMenu/NavMenu";
+import Navbar from "../../components/Navbar/Navbar";
+import Cart from "../Cart/Cart";
+
 import "./header.css";
 
 const Header = () => {
+  const [toggleMenu, setToggleMenu] = useState(false);
+
   return (
     <header>
-      <a href="/">
-        <img src={logo} alt="sneakers" className="logo" />
-      </a>
-
-      <nav className="navbar">
-        <NavMenu />
-
-        <div className="navbar-side">
-          <a href="#" className="nav-cart">
-            <img src={cart} alt="" className="cart" />
+      <div className="header__navbar">
+        <div className="header-wrapper">
+          <a href="/" className="logo">
+            <img src={logo} alt="sneakers" />
           </a>
 
-          <a href="#" className="nav-avatar">
-            <img src={user} alt="" />
+          <Navbar />
+        </div>
+
+        <Cart />
+      </div>
+
+      <div className="header__navbar-menu">
+        <div className="header-wrapper">
+          {toggleMenu ? (
+            <RiCloseLine
+              size={27}
+              className="menu-close"
+              onClick={() => setToggleMenu(false)}
+            />
+          ) : (
+            <RiMenuLine
+              size={27}
+              className="menu-open"
+              onClick={() => setToggleMenu(true)}
+            />
+          )}
+
+          <a href="/" className="logo">
+            <img src={logo} alt="sneakers" />
           </a>
         </div>
-      </nav>
+
+        {toggleMenu && <Navbar />}
+
+        <Cart />
+      </div>
     </header>
   );
 };
