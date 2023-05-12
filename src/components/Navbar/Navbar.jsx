@@ -1,8 +1,8 @@
 import "./navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ className }) => {
   return (
-    <nav className="transform-slide-right">
+    <nav className={className}>
       <ul className="nav-lists">
         <li>
           <a href="#" className="nav-link">

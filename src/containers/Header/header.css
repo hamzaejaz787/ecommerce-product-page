@@ -61,3 +61,17 @@
     align-items: center;
   }
 }
+
+@media screen and (max-width: 425px) {
+  header {
+    padding: 2.5em 1em;
+  }
+
+  .logo img {
+    width: 120px;
+  }
+
+  .menu-open {
+    margin-right: 0.75em;
+  }
+}

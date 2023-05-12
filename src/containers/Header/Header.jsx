@@ -45,7 +45,7 @@ const Header = () => {
           </a>
         </div>
 
-        {toggleMenu && <Navbar />}
+        {toggleMenu && <Navbar className={"transform-slide-right"} />}
 
         <Cart />
       </div>

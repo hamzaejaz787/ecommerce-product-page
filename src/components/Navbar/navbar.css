@@ -42,6 +42,7 @@ nav {
   nav {
     margin: 0;
     width: 70vw;
+    height: 100vh;
     background-color: #fff;
     position: absolute;
     top: 0;
@@ -51,17 +52,21 @@ nav {
 
   .nav-lists {
     flex-direction: column;
-    min-height: 100vh;
     align-items: start;
-    padding-top: 6em;
+    padding-top: 6.5em;
   }
 
   .nav-lists li {
-    margin: 1rem;
+    margin: 0.75rem 2.5rem;
   }
 
   .nav-link {
     font-weight: bold;
+    color: var(--black);
+  }
+
+  .nav-link:hover {
+    color: var(--dark-grayish-blue);
   }
 
   .nav-link:hover::after {
@@ -69,20 +74,8 @@ nav {
   }
 }
 
-.transform-slide-right {
-  -webkit-animation: trasnform-slide-right 0.4s
-    cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  animation: trasnform-slide-right 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-}
-
-@keyframes transform-slide-right {
-  0% {
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-  }
-
-  100% {
-    -webkit-transform: translateX(50%);
-    transform: translateX(50%);
+@media screen and (max-width: 425px) {
+  .nav-lists li {
+    margin: 0.75rem 1.25rem;
   }
 }

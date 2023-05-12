@@ -26,3 +26,9 @@
 .cart-avatar:focus {
   border-color: var(--orange-primary);
 }
+
+@media screen and (max-width: 425px) {
+  .cart-icon {
+    margin-right: 0.5em;
+  }
+}
