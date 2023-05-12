@@ -1,6 +1,8 @@
+import "./intro.css";
+
 const Intro = () => {
   return (
-    <>
+    <div className="intro">
       <strong>Sneaker Company</strong>
 
       <h1>Fall Limited Edition Sneakers</h1>
@@ -9,7 +11,7 @@ const Intro = () => {
         Featuring a durable rubber outer sole, they'll withstand everything the
         weather can offer.
       </p>
-    </>
+    </div>
   );
 };
 
