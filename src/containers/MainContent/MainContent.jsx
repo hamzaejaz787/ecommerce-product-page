@@ -1,13 +1,13 @@
-import Intro from "../Intro/Intro";
-import Lightbox from "../Lightbox/Lightbox";
+import ProductImage from "../ProductImage/ProductImage";
+import Product from "../Product/Product";
 
 import "./main-content.css";
 
 const MainContent = () => {
   return (
     <main className="main">
-      <Lightbox />
-      <Intro />
+      <ProductImage />
+      <Product />
     </main>
   );
 };
