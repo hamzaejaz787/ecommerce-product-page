@@ -5,6 +5,10 @@
   width: 100%;
 }
 
+.main__image-container {
+  position: relative;
+}
+
 .product__image-main {
   max-width: 400px;
   border-radius: 15px;
@@ -41,100 +45,45 @@
   border-color: var(--orange-primary);
 }
 
-.product-logo {
-  text-transform: uppercase;
-  color: var(--orange-primary);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1rem;
-}
-
-.product-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  padding-top: 0.5rem;
-}
-
-.product-description {
-  font-size: 1rem;
-  color: var(--dark-grayish-blue);
-  line-height: 1.5rem;
-  width: 80%;
-  padding: 1rem 0;
-}
-
-.product-current_price {
-  font-size: 1.25rem;
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.45em;
-}
-
-.product-current_price span {
-  background-color: var(--orange-pale);
-  color: var(--orange-primary);
-  padding: 0.25rem 0.5rem;
-  border-radius: 5px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  margin-left: 0.75em;
-}
-
-.product-old_price {
-  text-decoration: line-through;
-  color: var(--grayish-blue);
-}
-
-.product__checkout {
-  display: flex;
-  align-items: center;
-  margin-top: 2em;
-  max-width: 450px;
-}
-
-.product__checkout-quantity {
-  display: flex;
-  max-width: 150px;
-  width: 100%;
-  padding: 1rem;
-  border-radius: 5px;
-  align-items: center;
-  justify-content: space-between;
-  background-color: var(--light-grayish-blue);
-}
-
-.product__checkout-quantity .quantity-btn {
-  color: var(--orange-primary);
+.image-nav {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--dark-grayish-blue);
+  background-color: var(--white);
   cursor: pointer;
+  display: none;
 }
 
-.product__checkout-quantity span {
-  font-size: 1rem;
-  color: var(--black);
-  font-weight: 700;
+.previous {
+  position: absolute;
+  left: 3.5%;
+  top: 50%;
 }
 
-.product__checkout-cta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background-color: var(--orange-primary);
-  color: var(--white);
-  border-radius: 5px;
-  width: 100%;
-  margin-left: 1em;
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.next {
+  position: absolute;
+  right: 3.5%;
+  top: 50%;
 }
 
-.product__checkout-cta:hover {
-  background-color: #ff8c34;
-}
+@media screen and (max-width: 800px) {
+  .product__image {
+    width: auto;
+  }
 
-.product__checkout-cta .cta-icon {
-  margin-right: 1rem;
+  .product__image-thumbnails {
+    display: none;
+  }
+
+  .product__image-main {
+    max-width: 100vw;
+    border-radius: 0;
+  }
+
+  .image-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

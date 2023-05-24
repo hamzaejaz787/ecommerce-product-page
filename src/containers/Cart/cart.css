@@ -29,6 +29,11 @@
 
 @media screen and (max-width: 425px) {
   .cart-icon {
-    margin-right: 0.5em;
+    margin-right: 1em;
+  }
+
+  .cart-avatar {
+    width: 30px;
+    height: 30px;
   }
 }
