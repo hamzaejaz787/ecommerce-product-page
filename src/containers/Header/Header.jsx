@@ -3,7 +3,7 @@ import { RiMenuLine, RiCloseLine } from "react-icons/ri";
 
 import logo from "../../assets/logo.svg";
 import Navbar from "../../components/Navbar/Navbar";
-import Cart from "../Cart/Cart";
+import NavBasket from "../NavBasket/NavBasket";
 
 import "./header.css";
 
@@ -21,7 +21,7 @@ const Header = () => {
           <Navbar />
         </div>
 
-        <Cart />
+        <NavBasket />
       </div>
 
       <div className="header__navbar-menu">
@@ -47,7 +47,7 @@ const Header = () => {
 
         {toggleMenu && <Navbar className={"transform-slide-right"} />}
 
-        <Cart />
+        <NavBasket />
       </div>
     </header>
   );
