@@ -1,5 +1,5 @@
-import { useState } from "react";
-
+import { useState, useContext } from "react";
+import { CartContext } from "../../CartContext";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaMinus, FaPlus } from "react-icons/fa";
 
@@ -7,6 +7,7 @@ import "./product.css";
 
 const Product = () => {
   const [count, setCount] = useState(0);
+  const { addToCart } = useContext(CartContext);
 
   const increment = () => {
     setCount(count + 1);
@@ -14,6 +15,12 @@ const Product = () => {
 
   const decrement = () => {
     if (count > 0) setCount(count - 1);
+  };
+
+  const addItemToCart = () => {
+    const newItem = { id: 1, name: "Sneakers", price: 125, count };
+
+    addToCart(newItem);
   };
 
   return (
@@ -45,7 +52,7 @@ const Product = () => {
           </button>
         </div>
 
-        <button className="product__checkout-cta">
+        <button className="product__checkout-cta" onClick={addItemToCart}>
           <AiOutlineShoppingCart className="cta-icon" size={22} />
           Add to cart
         </button>
