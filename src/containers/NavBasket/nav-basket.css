@@ -9,6 +9,23 @@
   cursor: pointer;
 }
 
+.cart {
+  position: relative;
+  width: 100%;
+}
+
+.cart-count {
+  background-color: var(--orange-primary);
+  color: var(--white);
+  font-size: 0.6rem;
+  padding: 0.1rem 0.55rem;
+  border-radius: 20px;
+  position: absolute;
+  right: 40%;
+  top: -15%;
+  pointer-events: none;
+}
+
 .cart-icon:hover {
   color: var(--black);
 }
@@ -35,5 +52,12 @@
   .user-avatar {
     width: 30px;
     height: 30px;
+  }
+
+  .cart-count {
+    font-size: 0.5rem;
+    padding: 0.1rem 0.45rem;
+    right: 35%;
+    top: -10%;
   }
 }

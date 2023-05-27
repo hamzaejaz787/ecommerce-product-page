@@ -6,7 +6,7 @@ import { FaMinus, FaPlus } from "react-icons/fa";
 import "./product.css";
 
 const Product = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const { addToCart } = useContext(CartContext);
 
   const increment = () => {
@@ -14,7 +14,7 @@ const Product = () => {
   };
 
   const decrement = () => {
-    if (count > 0) setCount(count - 1);
+    if (count > 1) setCount(count - 1);
   };
 
   const addItemToCart = () => {
