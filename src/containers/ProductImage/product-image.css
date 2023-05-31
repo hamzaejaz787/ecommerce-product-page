@@ -12,6 +12,17 @@
 .product__image-main {
   max-width: 400px;
   border-radius: 15px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.product__image-main.fade-out {
+  opacity: 0;
+}
+
+.product__image-main.fade-in {
+  opacity: 1;
 }
 
 .product__image-thumbnails {

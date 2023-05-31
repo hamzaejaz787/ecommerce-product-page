@@ -13,7 +13,7 @@
   content: "";
   position: absolute;
   left: 6%;
-  bottom: 0;
+  bottom: 5%;
   background: var(--light-grayish-blue);
 }
 

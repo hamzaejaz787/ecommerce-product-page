@@ -27,7 +27,7 @@ nav {
   background: var(--orange-primary);
   z-index: 1;
   position: absolute;
-  top: 345%;
+  top: 315%;
 }
 
 .nav-link:hover {
