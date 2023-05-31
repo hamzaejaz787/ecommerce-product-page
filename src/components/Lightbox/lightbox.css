@@ -21,11 +21,38 @@
   border-radius: 15px;
 }
 
-.image-nav {
+.lightbox-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   border: 1px solid var(--dark-grayish-blue);
   background-color: var(--white);
+  cursor: pointer;
+}
+
+.lightbox-nav:hover {
+  border-color: var(--black);
+}
+
+.previous {
+  position: absolute;
+  left: -5%;
+  top: calc(50% - 15px);
+}
+
+.next {
+  position: absolute;
+  right: -5%;
+  top: calc(50% - 15px);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -10%;
+  right: 0;
+  fill: var(--orange-primary);
   cursor: pointer;
 }
