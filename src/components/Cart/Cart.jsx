@@ -25,7 +25,7 @@ const Cart = () => {
     const { sessionId } = await res.json();
 
     const stripe = window.Stripe(
-      "pk_test_51HjmbpFUvqoJQ8qn7DfsbDaKEsxrea4sRlMOchvJ9wFIsBVzqjS1kApi3o4Cnbm9NVyV5oke5b7E7CRMW8DXlGhr00Yq794J5l"
+      "pk_test_51HjmbpFUvqoJQ8qnRIhCfAtabsT40wmilJ7jm7xwcn6I0sjxK8L9fqMpYWWkDe8IzBCVnzjXjMHMQSNT9SYcT5Hq00dLx2At43"
     );
     stripe.redirectToCheckout({ sessionId: sessionId });
   };
