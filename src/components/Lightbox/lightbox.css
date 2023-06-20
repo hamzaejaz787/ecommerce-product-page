@@ -11,11 +11,11 @@
 .lightbox {
   z-index: 2;
   position: absolute;
-  top: calc(50% - 235px);
+  top: calc(50% - 200px);
   left: calc(50% - 200px);
 }
 
-.main-image {
+.lightbox img {
   width: 100%;
   max-width: 400px;
   border-radius: 15px;
@@ -34,30 +34,19 @@
 }
 
 .lightbox-nav:hover {
-  border-color: var(--orange-primary);
-  fill: var(--orange-primary);
+  border-color: var(--black);
 }
 
-.lightbox-previous {
+.previous {
   position: absolute;
-  left: -4%;
-  top: calc(50% - 50px);
+  left: -5%;
+  top: calc(50% - 15px);
 }
-.lightbox-next {
+
+.next {
   position: absolute;
-  right: -4%;
-  top: calc(50% - 50px);
-}
-
-.lightbox-previous polyline,
-.lightbox-next polyline {
-  stroke: var(--black);
-  transition: all 0.2s ease;
-}
-
-.lightbox-previous:hover polyline,
-.lightbox-next:hover polyline {
-  stroke: var(--orange-primary);
+  right: -5%;
+  top: calc(50% - 15px);
 }
 
 .lightbox-close {
@@ -66,31 +55,4 @@
   right: 0;
   fill: var(--orange-primary);
   cursor: pointer;
-}
-
-.lightbox__image-thumbnails {
-  max-width: 400px;
-  width: 100%;
-  padding-top: 1em;
-  display: flex;
-  justify-content: space-between;
-}
-
-.lightbox__image-thumbnail {
-  border-radius: 10px;
-  width: 80px;
-  height: 80px;
-  overflow: hidden;
-}
-
-.lightbox__image-thumbnail img {
-  width: 100%;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.lightbox__image-thumbnail:hover,
-.lightbox__image-thumbnail:active,
-.lightbox__image-thumbnail:focus {
-  border-color: var(--orange-primary);
 }

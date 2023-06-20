@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 import "./product-image.css";
 import Lightbox from "../../components/Lightbox/Lightbox";
@@ -7,22 +7,6 @@ const ProductImage = ({ images, thumbnailImages }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [animationFade, setAnimationFade] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  //Check screen width on component mount and resize
-  useEffect(() => {
-    const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 1024);
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   const goToImage = (index) => {
     setAnimationFade(true);
@@ -35,7 +19,6 @@ const ProductImage = ({ images, thumbnailImages }) => {
 
   const goToNextImage = () => {
     setAnimationFade(true);
-    //Wait 3s before loading next image
     setTimeout(() => {
       setCurrentImageIndex((prevIndex) =>
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
@@ -46,7 +29,6 @@ const ProductImage = ({ images, thumbnailImages }) => {
 
   const goToPrevImage = () => {
     setAnimationFade(true);
-    //Wait 3s before loading previous image
     setTimeout(() => {
       setCurrentImageIndex((prevIndex) =>
         prevIndex === 0 ? images.length - 1 : prevIndex - 1
@@ -56,13 +38,9 @@ const ProductImage = ({ images, thumbnailImages }) => {
   };
 
   const openLightbox = () => {
-    //Only open lightbox for larger screen sizes
-    if (isDesktop) {
-      setLightboxOpen(true);
-      document.body.style.overflow = "hidden";
-    }
+    setLightboxOpen(true);
+    document.body.style.overflow = "hidden";
   };
-
   const closeLightbox = () => {
     setLightboxOpen(false);
     document.body.style.overflow = "auto";
@@ -78,11 +56,10 @@ const ProductImage = ({ images, thumbnailImages }) => {
           className={`product__image-main ${
             animationFade ? "fade-out" : "fade-in"
           }`}
-          loading="lazy"
           onClick={openLightbox}
         />
 
-        <button className="image-nav previous" onClick={goToPrevImage}>
+        <button className="image-nav previous" onClick={() => goToPrevImage()}>
           <GrFormPrevious size={27} />
         </button>
         <button className="image-nav next" onClick={goToNextImage}>
@@ -92,9 +69,8 @@ const ProductImage = ({ images, thumbnailImages }) => {
 
       {lightboxOpen && (
         <Lightbox
-          images={images}
+          currentImage={images[currentImageIndex]}
           closeLightbox={closeLightbox}
-          thumbnailImages={thumbnailImages}
         />
       )}
 
