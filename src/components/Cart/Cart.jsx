@@ -11,6 +11,25 @@ const Cart = () => {
     removeFromCart(itemId);
   };
 
+  const handleCheckout = async (e) => {
+    e.preventDefault();
+
+    const res = await fetch("http://localhost:5000/create-payment-intent", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cartItems),
+    });
+
+    const { sessionId } = await res.json();
+
+    const stripe = window.Stripe(
+      "pk_test_51HjmbpFUvqoJQ8qn7DfsbDaKEsxrea4sRlMOchvJ9wFIsBVzqjS1kApi3o4Cnbm9NVyV5oke5b7E7CRMW8DXlGhr00Yq794J5l"
+    );
+    stripe.redirectToCheckout({ sessionId: sessionId });
+  };
+
   return (
     <div className="cart__wrapper">
       <h3>Cart</h3>
@@ -50,7 +69,11 @@ const Cart = () => {
               </div>
             ))}
 
-            <button className="checkout-btn">Checkout</button>
+            <form onSubmit={handleCheckout}>
+              <button className="checkout-btn" type="submit">
+                Checkout
+              </button>
+            </form>
           </div>
         )}
       </div>

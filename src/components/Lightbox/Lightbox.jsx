@@ -37,13 +37,13 @@ const Lightbox = ({ images, closeLightbox, thumbnailImages }) => {
             loading="lazy"
             className="main-image"
           />
-
           <button
             className="lightbox-nav lightbox-previous"
             onClick={goToPrevImage}
           >
             <GrFormPrevious size={27} />
           </button>
+          .
           <button
             className="lightbox-nav lightbox-next"
             onClick={goToNextImage}
