@@ -1,17 +1,18 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv").config();
-
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-
-// This is Stripe CLI webhook secret for testing your endpoint locally.
-const endpointSecret = process.env.ENDPOINT_SECRET;
-
 const app = express();
+
+const port = process.env.PORT || "3000";
 
 app.use(cors());
 app.use(express.static("public"));
 app.use(express.json());
+
+app.get("/", async (req, res) => {
+  res.send("Hello Server");
+});
 
 app.post("/create-payment-intent", async (req, res) => {
   const cartItems = req.body;
@@ -29,34 +30,11 @@ app.post("/create-payment-intent", async (req, res) => {
       quantity: item.count,
     })),
     mode: "payment",
-    success_url: "http://localhost:5173/",
-    cancel_url: "http://localhost:5173/",
+    success_url: "https://ecomerce-with-stripe.netlify.app/",
+    cancel_url: "https://ecomerce-with-stripe.netlify.app/",
   });
 
   res.json({ sessionId: session.id });
 });
 
-// app.post("/webhook", async (req, res) => {
-//   let event;
-
-//   try {
-//     const sig = req.headers["stripe-signature"];
-//     event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
-//   } catch (error) {
-//     return res.status(400).send(`Webhook Error: ${error.message}`);
-//   }
-//   // Handle the event
-//   switch (event.type) {
-//     case "payment_intent.succeeded":
-//       const paymentIntentSucceeded = event.data.object;
-//       // Then define and call a function to handle the event payment_intent.succeeded
-//       break;
-//     // ... handle other event types
-//     default:
-//       console.log(`Unhandled event type ${event.type}`);
-//   }
-
-//   res.status(200).send();
-// });
-
-app.listen(5000, () => console.log("Server is running on port 5000"));
+app.listen(port, () => console.log(`Server is running on port ${port}`));
